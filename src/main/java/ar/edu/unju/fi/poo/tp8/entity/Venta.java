@@ -42,14 +42,17 @@ public abstract class Venta{
 	@JoinColumn(name = "producto_id", referencedColumnName = "id")
 	private Producto producto;
 
-  public Venta(Double importe, Producto producto) {
+  public Venta(Producto producto) {
     super();
     this.fecha = LocalDate.now();
-    this.importe = importe;
+    this.importe = producto.getPrecio();
     this.producto = producto;
-    this.cuotas = obtenerCuotas();    
+    this.cuotas = obtenerCuotas();
   }
 
+  public Venta() {
+  }
+  
   public abstract List<Cuota> obtenerCuotas();
   
 	public Long getId() {

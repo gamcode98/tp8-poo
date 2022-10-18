@@ -19,8 +19,11 @@ public class Ahora12 extends Venta{
 	@Column(name = "interes")
 	private Double interes;
 	
-	public Ahora12(Double importe, Producto producto) {
-		super(importe, producto);
+  public Ahora12(Producto producto) {
+    super(producto);
+  }
+  
+  public Ahora12() {		
 	}
 
 	public Double getInteres() {

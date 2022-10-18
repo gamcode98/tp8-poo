@@ -1,5 +1,7 @@
 package ar.edu.unju.fi.poo.tp8.service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +13,15 @@ import ar.edu.unju.fi.poo.tp8.service.ContadoService;
 public class ContadoServiceImpl implements ContadoService{
 	
 	@Autowired
-	private ContadoRepository contadoRepository;
+  private ContadoRepository contadoRepository;
 
 	@Override
-	public void agregarVenta(Contado contado) { contadoRepository.save(contado);}
+	public void agregarVenta(Contado contado) { contadoRepository.save(contado); }
+
+  @Override
+  public Optional<Contado> buscarVenta(Contado contado) { return contadoRepository.findById(contado.getId()); }
+
+  @Override
+  public void eliminarVenta(Contado contado) { contadoRepository.deleteById(contado.getId()); }
 
 }

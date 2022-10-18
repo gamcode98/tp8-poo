@@ -19,9 +19,12 @@ public class Contado extends Venta{
 	@Column(name = "descuento")
 	private Double descuento;
 	
-	public Contado(Double importe, Producto producto) {
-		super(importe, producto);
-	}
+  public Contado(Producto producto) {
+    super(producto);
+  }
+  
+  public Contado() {
+  }
 	
 	public Double getDescuento() {
 		return descuento;

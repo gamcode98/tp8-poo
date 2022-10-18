@@ -66,8 +66,18 @@ public class Cuota {
 		return estado;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
-	}
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
+  
+  @Override
+  public String toString() {
+    return "{" +
+      " id='" + getId() + "'" +
+      ", numeroCuota='" + getNumeroCuota() + "'" +
+      ", importe='" + getImporte() + "'" +
+      ", estado='" + getEstado() + "'" +
+      "}";
+  }
 
 }

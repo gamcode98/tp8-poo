@@ -1,7 +1,6 @@
 package ar.edu.unju.fi.poo.tp8.entity;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -48,39 +47,11 @@ public abstract class Venta{
     this.fecha = LocalDate.now();
     this.importe = importe;
     this.producto = producto;
-    this.cuotas = obtenerCuotas(isAhora12(),isContado());
+    this.cuotas = obtenerCuotas();    
   }
+
+  public abstract List<Cuota> obtenerCuotas();
   
-  public List<Cuota> obtenerCuotas(Boolean ahora12, Boolean contado) {
-    List<Cuota> cuotasGeneradas = new ArrayList<Cuota>();
-
-    if (ahora12) { generar12Cuotas(cuotasGeneradas); }
-
-    if (contado) {
-      Cuota cuotaContado = new Cuota(1, this.getImporte());
-      cuotasGeneradas.add(cuotaContado);
-    }
-
-    return cuotasGeneradas;
-  }
-  
-  public void generar12Cuotas(List<Cuota> cuotas) {
-    Double importePorCuota = this.getImporte() / 12;
-    Integer numeroCuota = 0;
-    for (int i = 0; i < 12; i++) {
-      numeroCuota++;
-      cuotas.add(new Cuota(numeroCuota, importePorCuota));
-     }
-  }
-  
-  public abstract Boolean isContado();
-
-  public abstract Boolean isAhora12();
-
-	public Venta(Double importe2, Producto producto2, Boolean boolean1) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Long getId() {
 		return id;
 	}
@@ -120,9 +91,6 @@ public abstract class Venta{
 	public void setProducto(Producto producto) {
 		this.producto = producto;
 	}
-	
-	
-	
-	
+
 	
 }

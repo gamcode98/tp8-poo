@@ -41,8 +41,10 @@ class Tp8ApplicationTests {
 	void setUp() throws Exception {
 		producto1 = new Producto("1111-aaaa", "Ruedas 4x4", 23000.0);
 		// cuota1 = new Cuota(1, 23000.0);
-    contado1 = new Contado(23000.0, producto1, Util.DESCUENTO);
-    ahora12Uno = new Ahora12(50000.0, producto1, Util.INTERES);
+    // contado1 = new Contado(23000.0, producto1, Util.DESCUENTO);
+    ahora12Uno = new Ahora12(50000.0, producto1);
+
+    System.out.println("interes -> "+  ahora12Uno.getInteres());
 	}
 
 	@AfterEach
